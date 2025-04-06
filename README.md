@@ -1,48 +1,78 @@
-# WhatsApp Messaging API
+# Sistema de Previsão de Pagamentos e Gestão de Cobranças
 
-A simple Python function to send WhatsApp messages using the Twilio API.
+## Introdução
 
-## Setup
+Este projeto consiste em uma solução completa para previsão de comportamento de pagamento e gestão de cobranças, desenvolvida para auxiliar empresas a otimizar seu processo de recuperação de crédito. O sistema utiliza técnicas avançadas de machine learning para classificar clientes de acordo com sua probabilidade de pagamento, permitindo uma abordagem mais estratégica e personalizada nas ações de cobrança.
 
-1. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+### Principais Funcionalidades
 
-2. Sign up for a Twilio account at [twilio.com](https://www.twilio.com) if you don't have one already.
+- Previsão do comportamento de pagamento dos clientes através de modelo XGBoost
+- Classificação dos clientes em diferentes perfis de pagamento
+- Interface web interativa desenvolvida em Streamlit para visualização e gestão
+- Sistema automatizado de envio de mensagens de cobrança via WhatsApp
+- Acompanhamento em tempo real das métricas de sucesso das cobranças
 
-3. Set up your environment variables:
-   ```
-   export TWILIO_ACCOUNT_SID="your_account_sid"
-   export TWILIO_AUTH_TOKEN="your_auth_token"
-   export TWILIO_WHATSAPP_NUMBER="your_twilio_whatsapp_number"
-   ```
+### Tecnologias Utilizadas
 
-   Or create a `.env` file in the project root with these variables.
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-4. Configure WhatsApp in your Twilio account:
-   - Go to the Twilio Console
-   - Navigate to Messaging > Try it out > Send a WhatsApp message
-   - Follow the instructions to set up your WhatsApp sandbox
+- Python 3.13
+- Streamlit para interface web
+- Pandas e NumPy para manipulação de dados
+- Scikit-learn e XGBoost para machine learning
+- Matplotlib, Seaborn e Plotly para visualizações
+- Integração com API do WhatsApp para envio de mensagens
 
-## Usage
+Esta solução visa aumentar a eficiência do processo de cobrança, reduzir custos operacionais e melhorar a taxa de recuperação de crédito através de uma abordagem data-driven e automatizada.
 
-```python
-from src.whatsapp_api.main import send_whatsapp_message
+## Desenvolvimento do Modelo
 
-# Send a message to a specific number
-recipient = "+1234567890"  # Include country code
-message = "Hello from your WhatsApp API!"
-success = send_whatsapp_message(recipient, message)
+### Pré-processamento dos Dados
 
-if success:
-    print("Message sent successfully!")
-else:
-    print("Failed to send message.")
-```
+O desenvolvimento do modelo de previsão seguiu as seguintes etapas de pré-processamento:
 
-## Notes
+1. **Limpeza dos Dados**
+   - Remoção de valores nulos e duplicados
+   - Remoção de colunas com mais de 40% de valores faltantes
+   - Padronização de formatos de datas e valores monetários
 
-- The recipient must be opted-in to receive messages from your Twilio WhatsApp number.
-- In sandbox mode, you can only send messages to verified numbers.
-- For production use, you need to apply for a WhatsApp Business Profile through Twilio. 
+2. **Engenharia de Features**
+   - Criação de features temporais (aparições anteriores de um cliente no histórico de atrasos)
+   - Imputação de uma flag MISSING para variáveis categóricas faltantes
+   - Codificação de variáveis categóricas usando one-hot encoding
+   - Imputação da mediana para variáveis numéricas
+   - Normalização de variáveis numéricas usando o standardscaler
+   - Transformação da variável alvo em flag (full_payment, partial_payment e no_payment)
+
+3. **Seleção de Features**
+   - Análise de correlação entre variáveis numérica
+   [[image.png]]
+   - Análise de diferença de grupos para variáveis categóricas
+
+### Processo de Modelagem
+
+O processo de desenvolvimento do modelo seguiu as seguintes etapas:
+
+1. **Divisão dos Dados**
+   - Separação em conjuntos de treino e oot.
+   - Separação dos dados de treino em treino e teste.
+   - Utilização de gridsearch para otimizar parametros testando modelos XGBoostClassifier, RandomForestClassifier e Regressão Logística
+   - Estratificação para manter a distribuição das classes
+
+2. **Treinamento do Modelo**
+   - Utilização do algoritmo XGBoost para classificação
+   - Otimização de hiperparâmetros via validação cruzada
+   - Implementação de early stopping para evitar overfitting
+
+3. **Avaliação do Modelo**
+   - Métricas principais: precisão, recall e F1-score
+   - Análise da matriz de confusão
+   - Validação cruzada para robustez dos resultados
+   - Monitoramento de métricas específicas do negócio
+
+4. **Interpretabilidade**
+   - Análise de importância das features
+   - Geração de SHAP values para entender decisões do modelo
+   - Documentação das regras de negócio aprendidas
+
+
