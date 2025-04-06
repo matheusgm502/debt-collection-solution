@@ -1,0 +1,15 @@
+{
+    "model_type": "xgb",
+    "best_params": {
+        "classifier__colsample_bytree": 0.8,
+        "classifier__learning_rate": 0.1,
+        "classifier__max_depth": 3,
+        "classifier__min_child_weight": 1,
+        "classifier__n_estimators": 200,
+        "classifier__scale_pos_weight": 1,
+        "classifier__subsample": 0.8
+    },
+    "best_f1_score": 0.5913600486204549,
+    "validation_accuracy": 0.5938217821782178,
+    "validation_f1": 0.5913600486204549
+}

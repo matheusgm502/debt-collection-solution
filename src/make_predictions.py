@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 from models.prediction_model import load_data, prepare_features
 
-MODEL_PATH = 'output/model_evaluation_20250406_102230/best_xgb_model.joblib'
+MODEL_PATH = 'output/classification_model_evaluation/best_xgb_model.joblib'
 def main():
     # Create output directory with timestamp
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')

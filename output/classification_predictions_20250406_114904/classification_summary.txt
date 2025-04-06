@@ -1,0 +1,23 @@
+Classification Prediction Summary
+Timestamp: 2025-04-06 11:49:21
+
+Total records processed: 300000
+
+Actual Class Distribution:
+actual_class
+full_payment       0.369583
+no_payment         0.353513
+partial_payment    0.276903
+
+Predicted Class Distribution:
+predicted_class
+partial_payment    0.406387
+full_payment       0.353513
+no_payment         0.240100
+
+Overall Accuracy: 0.5966
+
+Class-wise Accuracy:
+full_payment: 0.7291
+no_payment: 0.3733
+partial_payment: 0.7046

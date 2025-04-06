@@ -1,0 +1,4 @@
+params,accuracy,f1_score
+"{'classifier__C': 0.1, 'classifier__class_weight': 'balanced', 'classifier__max_iter': 1000, 'classifier__solver': 'lbfgs'}",0.5466666666666666,0.5363674815444223
+"{'classifier__C': 1.0, 'classifier__class_weight': 'balanced', 'classifier__max_iter': 1000, 'classifier__solver': 'lbfgs'}",0.5464554455445545,0.5361449394762284
+"{'classifier__C': 10.0, 'classifier__class_weight': 'balanced', 'classifier__max_iter': 1000, 'classifier__solver': 'lbfgs'}",0.5466402640264026,0.5363556377802644
