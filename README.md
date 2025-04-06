@@ -10,7 +10,6 @@ Este projeto consiste em uma solução completa para previsão de comportamento 
 - Classificação dos clientes em diferentes perfis de pagamento
 - Interface web interativa desenvolvida em Streamlit para visualização e gestão
 - Sistema automatizado de envio de mensagens de cobrança via WhatsApp
-- Acompanhamento em tempo real das métricas de sucesso das cobranças
 
 ### Tecnologias Utilizadas
 
@@ -21,7 +20,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - Pandas e NumPy para manipulação de dados
 - Scikit-learn e XGBoost para machine learning
 - Matplotlib, Seaborn e Plotly para visualizações
-- Integração com API do WhatsApp para envio de mensagens
+- Utilização do Wilio para disparo de mensagens.
 
 Esta solução visa aumentar a eficiência do processo de cobrança, reduzir custos operacionais e melhorar a taxa de recuperação de crédito através de uma abordagem data-driven e automatizada.
 
