@@ -1,0 +1,13 @@
+{
+    "model_type": "rf",
+    "best_params": {
+        "regressor__max_depth": 15,
+        "regressor__max_features": "sqrt",
+        "regressor__min_samples_leaf": 2,
+        "regressor__min_samples_split": 2,
+        "regressor__n_estimators": 200
+    },
+    "best_cv_score": 0.14241271789864052,
+    "validation_mse": 0.14241271789864052,
+    "validation_r2": 0.2389852643595738
+}

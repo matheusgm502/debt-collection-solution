@@ -1,0 +1,8 @@
+Total data size: 300000
+
+Dataset Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 300000 entries, 0 to 299999
+Columns: 328 entries, id to VAR_315
+dtypes: float64(183), int64(2), object(143)
+memory usage: 750.7+ MB

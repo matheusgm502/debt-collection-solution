@@ -1,0 +1,14 @@
+{
+    "model_type": "xgb",
+    "best_params": {
+        "regressor__colsample_bytree": 1.0,
+        "regressor__learning_rate": 0.1,
+        "regressor__max_depth": 3,
+        "regressor__min_child_weight": 3,
+        "regressor__n_estimators": 200,
+        "regressor__subsample": 0.8
+    },
+    "best_cv_score": 0.14118256485767583,
+    "validation_mse": 0.14118256485767583,
+    "validation_r2": 0.24555886680941474
+}
